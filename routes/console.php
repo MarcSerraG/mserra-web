@@ -1,5 +1,6 @@
 <?php
 
+use App\Console\Commands\pingIp;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 
@@ -15,5 +16,7 @@ use Illuminate\Support\Facades\Artisan;
 */
 
 Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
+    $ip = $this->argument('ip');
+    $this->comment(Inspiring::quote($ip));
 })->purpose('Display an inspiring quote');
+
